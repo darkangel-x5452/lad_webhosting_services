@@ -1,0 +1,1 @@
+import{o as e}from"./server-Cm-hasIB.js";import"./encryption-runtime-BkbXt81T.js";import"./db-CmwgYzu1.js";async function t(){return{ok:!1,error:`This demo is development-only. Add authentication before deploying.`}}e(t,`8c7a40553e8e`,`getDemoRows`);export{t as getDemoRows};

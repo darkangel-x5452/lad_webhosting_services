@@ -1,0 +1,1 @@
+import{o as e}from"./server-Cm-hasIB.js";import"./encryption-runtime-BkbXt81T.js";import"./db-CmwgYzu1.js";async function t(e,t){return{status:`error`,message:`This test is development-only. Add authentication before deploying.`}}e(t,`1d4aaa43efce`,`insertTestRow`);export{t as insertTestRow};

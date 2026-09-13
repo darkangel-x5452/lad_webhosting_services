@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./root-params-DhNz1YNG.js";async function n(n){return t(e(n.params,n.rootParamNamesByPattern[n.pattern]),()=>n.fn({params:n.params}))}export{n as t};

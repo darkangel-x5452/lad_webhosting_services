@@ -1,0 +1,116 @@
+export default {
+  "clientEntryUrl": "/_next/static/chunks/index-DZBug4Rn.js",
+  "clientEntryDeps": {
+    "js": [
+      "/_next/static/chunks/index-DZBug4Rn.js",
+      "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "/_next/static/chunks/framework-BlZLPK95.js",
+      "/_next/static/chunks/vinext-BSF48Lxl.js"
+    ],
+    "css": []
+  },
+  "clientReferenceDeps": {
+    "913972fa7736": {
+      "js": [
+        "/_next/static/chunks/DemoRows-DibFxeYb.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js",
+        "/_next/static/chunks/vinext-BSF48Lxl.js"
+      ],
+      "css": []
+    },
+    "78a1821fb055": {
+      "js": [
+        "/_next/static/chunks/SupabaseButton-YqbYqRjL.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js",
+        "/_next/static/chunks/vinext-BSF48Lxl.js"
+      ],
+      "css": []
+    },
+    "9276801271d6": {
+      "js": [
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "0b874ad30386": {
+      "js": [
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "593f344dc510": {
+      "js": [
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "9fb86276be8f": {
+      "js": [
+        "/_next/static/chunks/image-Csgv_QaV.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "bad85346fc72": {
+      "js": [
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "15c18cfaeeff": {
+      "js": [
+        "/_next/static/chunks/layout-segment-context-sbOctTvH.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "8c0f216c4604": {
+      "js": [
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    },
+    "89c3cac48cb5": {
+      "js": [
+        "/_next/static/chunks/vinext-BSF48Lxl.js",
+        "/_next/static/chunks/rolldown-runtime-hePW80VL.js",
+        "/_next/static/chunks/framework-BlZLPK95.js",
+        "/_next/static/chunks/index-DZBug4Rn.js"
+      ],
+      "css": []
+    }
+  },
+  "serverResources": {
+    "app/layout.tsx": {
+      "js": [],
+      "css": [
+        "/_next/static/css/index.BvdXdFCs.css"
+      ]
+    }
+  }
+}
