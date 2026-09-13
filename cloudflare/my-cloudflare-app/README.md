@@ -9,3 +9,15 @@ This project was created with create-vinext-app.
 - `pnpm run start` starts the built Worker locally with Wrangler.
 - `pnpm run deploy` deploys the Cloudflare Worker.
 
+## Cloudflare Build Configuration
+Build command
+- `npm run build`
+
+Deploy command
+- `npm run deploy`
+
+Version command
+- `npx wrangler versions upload`
+
+Root directory
+- `my-cloudflare-app`
