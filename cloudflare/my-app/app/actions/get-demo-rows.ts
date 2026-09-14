@@ -26,11 +26,14 @@ export async function getDemoRows(): Promise<GetRowsResult> {
   //   };
   // }
 
+  console.info("[trial env var1]", process.env.TRIAL_ENV_VAR);
+  
   console.info("[database configuration]", {
     hasDatabaseUrl:
       typeof process !== "undefined" &&
       Boolean(process.env.DATABASE_URL),
   });
+  
 
   try {
     console.info("Trying DB")

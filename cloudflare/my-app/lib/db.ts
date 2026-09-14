@@ -7,7 +7,9 @@ const globalForDb = globalThis as unknown as {
 
 export function getDb() {
   const databaseUrl = process.env.DATABASE_URL;
-
+  
+  console.info("[trial env var2]", process.env.TRIAL_ENV_VAR);
+  
   if (!databaseUrl) {
     throw new Error("Missing DATABASE_URL in .env.local");
   }

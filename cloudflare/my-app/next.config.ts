@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Keep your other existing settings.
+  serverExternalPackages: ["postgres"],
 };
 
 export default nextConfig;
