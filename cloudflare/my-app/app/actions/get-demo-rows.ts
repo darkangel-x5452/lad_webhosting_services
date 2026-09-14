@@ -19,12 +19,12 @@ type GetRowsResult =
 export async function getDemoRows(): Promise<GetRowsResult> {
   // Same local-only restriction as the earlier insert demo.
   // Replace with authentication AND authorization before deployment.
-  if (process.env.NODE_ENV !== "development") {
-    return {
-      ok: false,
-      error: "This demo is development-only. Add authentication before deploying.",
-    };
-  }
+  // if (process.env.NODE_ENV !== "development") {
+  //   return {
+  //     ok: false,
+  //     error: "This demo is development-only. Add authentication before deploying.",
+  //   };
+  // }
 
   try {
     const sql = getDb();

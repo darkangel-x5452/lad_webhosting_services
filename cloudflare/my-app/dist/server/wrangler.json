@@ -24,6 +24,7 @@
     "not_found_handling": "none",
     "binding": "ASSETS"
   },
+  "preview_urls": true,
   "vars": {},
   "durable_objects": {
     "bindings": []
