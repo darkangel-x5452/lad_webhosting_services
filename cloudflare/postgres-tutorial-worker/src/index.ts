@@ -5,10 +5,10 @@ export default {
 		// Create a new Client instance using the connection string
 		// or explicit parameters as shown in the previous steps.
 		// Here, we are using the connection string method.
-		// const sql = new Client({connectionString: env.DB_URL,});
+		const sql = new Client({connectionString: env.DB_URL,});
 		// Hyperdrive
-		const sql = new Client({connectionString: env.HYPERDRIVE.connectionString})
-		const url = new URL(request.url);
+		// const sql = new Client({connectionString: env.HYPERDRIVE.connectionString})
+		// const url = new URL(request.url);
 		// Connect to the PostgreSQL database
 		await sql.connect();
 

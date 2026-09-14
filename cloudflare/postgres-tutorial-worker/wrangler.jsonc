@@ -14,12 +14,12 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
-	"hyperdrive": [
-		{
-			"binding": "HYPERDRIVE",
-			"id": "d9e46f0fe726416688e5b8906861f6ce"
-		}
-	]
+	// "hyperdrive": [
+	// 	{
+	// 		"binding": "HYPERDRIVE",
+	// 		"id": "d9e46f0fe726416688e5b8906861f6ce"
+	// 	}
+	// ]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
