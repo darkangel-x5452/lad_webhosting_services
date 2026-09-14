@@ -17,38 +17,35 @@ type GetRowsResult =
   | { ok: false; error: string };
 
 export async function getDemoRows(): Promise<GetRowsResult> {
-  // Same local-only restriction as the earlier insert demo.
-  // Replace with authentication AND authorization before deployment.
-  // if (process.env.NODE_ENV !== "development") {
-  //   return {
-  //     ok: false,
-  //     error: "1This demo is development-only. Add authentication before deploying.",
-  //   };
-  // }
-
-  console.info("[trial env var1]", process.env.TRIAL_ENV_VAR);
-  
-  console.info("[database configuration]", {
-    hasDatabaseUrl:
-      typeof process !== "undefined" &&
-      Boolean(process.env.DATABASE_URL),
-  });
-  
+  // Local diagnostic only until authentication and authorization are added.
+  let sql: ReturnType<typeof getDb> | undefined;
+  let stage = "configuration";
 
   try {
-    console.info("Trying DB")
-    const sql = getDb();
-    
-    console.info("awaiting sql")
+    console.info("[database configuration]", {
+      hasDatabaseUrl: Boolean(process.env.DATABASE_URL),
+      hasCaCertificate: Boolean(
+        process.env.DATABASE_CA_CERT?.includes(
+          "-----BEGIN CERTIFICATE-----",
+        ),
+      ),
+    });
+
+    sql = getDb();
+
+    // Temporary diagnostic: remove after the connection is working.
+    stage = "connection / SELECT 1";
+    await sql`SELECT 1 AS ok`;
+    console.info("[database] SELECT 1 succeeded");
+
+    stage = "select demo rows";
     const rows = await sql<DatabaseRow[]>`
-    select *
-    from app_private.insert_demo
-    order by created_at desc, id desc
+      SELECT id, message, created_at
+      FROM app_private.insert_demo
+      ORDER BY created_at DESC, id DESC
     `;
-    
-    console.info("returning sql")
-    
-    // Return a plain array with only the fields the UI needs.
+
+    stage = "serialize rows";
     return {
       ok: true,
       rows: Array.from(rows, (row) => ({
@@ -58,26 +55,43 @@ export async function getDemoRows(): Promise<GetRowsResult> {
       })),
     };
   } catch (error: unknown) {
-    console.info("error", error)
+    // Log selected diagnostic fields, not the entire database error/client.
     if (error instanceof Error) {
-      // Catch granular errors.
-      console.error("[database] message:", error.message);
-      console.error("[database] stack:", error.stack);
-      
+      console.error("[database]", {
+        stage,
+        message: error.message,
+        code:
+          "code" in error && typeof error.code === "string"
+            ? error.code
+            : undefined,
+        stack: error.stack,
+      });
+
       if (error.cause instanceof Error) {
-        console.error("[database] cause:", error.cause.stack);
+        console.error("[database cause]", {
+          message: error.cause.message,
+          stack: error.cause.stack,
+        });
       }
+    } else {
+      console.error("[database]", {
+        stage,
+        message: "Unknown database error",
+      });
     }
-    // Keep your existing error-handling behaviour below.
-    console.error(
-      "Database select failed:",
-      error instanceof Error ? error.message : "Unknown database error",
-    );
-    console.info("returning result")
-    
+
     return {
       ok: false,
-      error: "Could not load rows. Check your Next.js terminal.",
+      error: "Could not load rows. Check the server logs.",
     };
+  } finally {
+    if (sql) {
+      try {
+        await sql.end({ timeout: 5 });
+      } catch {
+        // Do not replace the original query result/error with a cleanup error.
+        console.warn("[database] Client cleanup failed");
+      }
+    }
   }
 }
