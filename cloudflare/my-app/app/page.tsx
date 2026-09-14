@@ -1,15 +1,15 @@
 import Image from "next/image";
-import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
-import SupabaseButton from "@/components/SupabaseButton";
-import DemoRows from "@/components/DemoRows";
+// import { createClient } from '@/utils/supabase/server'
+// import { cookies } from 'next/headers'
+// import SupabaseButton from "@/components/SupabaseButton";
+// import DemoRows from "@/components/DemoRows";
 
 
 export default async function Home() {
-  const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
+  // const cookieStore = await cookies()
+  // const supabase = createClient(cookieStore)
 
-  const { data: todos } = await supabase.from('instruments').select()
+  // const { data: todos } = await supabase.from('instruments').select()
   // const { data: todos } = await supabase.from('instruments').insert([
   //   { name: "Guitar" },
   //   { name: "Piano" }
@@ -52,18 +52,18 @@ export default async function Home() {
             center.
           </p>
           <p>Supabase Results</p>
-          <ul>
+          {/* <ul>
             {todos?.map((todo) => (
               <li key={todo.id}>{todo.name}</li>
             ))}
-          </ul>
+          </ul> */}
           <h1 className="text-2xl font-semibold">
             Supabase insert test
           </h1>
-          <SupabaseButton />
+          {/* <SupabaseButton /> */}
           <h1 className="text-2xl font-semibold">Supabase get inserted data</h1>
 
-          <DemoRows />
+          {/* <DemoRows /> */}
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a

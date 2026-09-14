@@ -10,88 +10,53 @@
     "file": "_next/static/chunks/rolldown-runtime-hePW80VL.js",
     "name": "rolldown-runtime"
   },
-  "_vinext-BSF48Lxl.js": {
-    "file": "_next/static/chunks/vinext-BSF48Lxl.js",
+  "_vinext-BWxUk1RP.js": {
+    "file": "_next/static/chunks/vinext-BWxUk1RP.js",
     "name": "vinext",
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
       "_framework-BlZLPK95.js"
     ],
     "dynamicImports": [
-      "_vinext-BSF48Lxl.js"
-    ]
-  },
-  "components/DemoRows.tsx": {
-    "file": "_next/static/chunks/DemoRows-DibFxeYb.js",
-    "name": "DemoRows",
-    "src": "components/DemoRows.tsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "_rolldown-runtime-hePW80VL.js",
-      "_framework-BlZLPK95.js",
-      "virtual:vinext-app-browser-entry"
-    ]
-  },
-  "components/SupabaseButton.tsx": {
-    "file": "_next/static/chunks/SupabaseButton-YqbYqRjL.js",
-    "name": "SupabaseButton",
-    "src": "components/SupabaseButton.tsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "_rolldown-runtime-hePW80VL.js",
-      "_framework-BlZLPK95.js",
-      "virtual:vinext-app-browser-entry"
-    ]
-  },
-  "node_modules/vinext/dist/server/app-browser-server-action-client.js": {
-    "file": "_next/static/chunks/app-browser-server-action-client-CDOsTV74.js",
-    "name": "app-browser-server-action-client",
-    "src": "node_modules/vinext/dist/server/app-browser-server-action-client.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_vinext-BSF48Lxl.js",
-      "virtual:vinext-app-browser-entry"
+      "_vinext-BWxUk1RP.js"
     ]
   },
   "node_modules/vinext/dist/shims/image.js": {
-    "file": "_next/static/chunks/image-Csgv_QaV.js",
+    "file": "_next/static/chunks/image-C89-byaT.js",
     "name": "image",
     "src": "node_modules/vinext/dist/shims/image.js",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
       "_framework-BlZLPK95.js",
-      "_vinext-BSF48Lxl.js"
+      "_vinext-BWxUk1RP.js"
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "_next/static/chunks/layout-segment-context-sbOctTvH.js",
+    "file": "_next/static/chunks/layout-segment-context-2qEQUcsK.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
       "_framework-BlZLPK95.js",
-      "_vinext-BSF48Lxl.js"
+      "_vinext-BWxUk1RP.js"
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "_next/static/chunks/index-DZBug4Rn.js",
+    "file": "_next/static/chunks/index-DDjSN_Z-.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
     "imports": [
       "_rolldown-runtime-hePW80VL.js",
       "_framework-BlZLPK95.js",
-      "_vinext-BSF48Lxl.js"
+      "_vinext-BWxUk1RP.js"
     ],
     "dynamicImports": [
-      "_vinext-BSF48Lxl.js",
+      "_vinext-BWxUk1RP.js",
       "node_modules/vinext/dist/shims/layout-segment-context.js",
-      "components/SupabaseButton.tsx",
-      "components/DemoRows.tsx",
-      "node_modules/vinext/dist/shims/image.js",
-      "node_modules/vinext/dist/server/app-browser-server-action-client.js"
+      "node_modules/vinext/dist/shims/image.js"
     ]
   }
 }
