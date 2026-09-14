@@ -1,6 +1,6 @@
 "use server";
 
-import { getDb } from "../../lib/db";
+import { getDb } from "@/lib/db";
 
 export type DemoRow = {
   id: string;

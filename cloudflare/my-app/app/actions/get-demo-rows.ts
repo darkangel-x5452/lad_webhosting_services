@@ -1,7 +1,8 @@
 "use server";
 
-import { getDb } from "../../lib/db";
+import { createDbClient } from "@/lib/pg-db";
 
+// Keep your existing DemoRow, DatabaseRow and GetRowsResult types here.
 export type DemoRow = {
   id: string;
   message: string;
@@ -17,80 +18,64 @@ type GetRowsResult =
   | { ok: false; error: string };
 
 export async function getDemoRows(): Promise<GetRowsResult> {
-  // Local diagnostic only until authentication and authorization are added.
-  let sql: ReturnType<typeof getDb> | undefined;
-  let stage = "configuration";
+  let client: ReturnType<typeof createDbClient> | undefined;
+  let stage = "create client";
 
   try {
-    console.info("[database configuration]", {
-      hasDatabaseUrl: Boolean(process.env.DATABASE_URL),
-      hasCaCertificate: Boolean(
-        process.env.DATABASE_CA_CERT?.includes(
-          "-----BEGIN CERTIFICATE-----",
-        ),
-      ),
-    });
+    // Create a fresh client inside this action.
+    client = createDbClient();
 
-    sql = getDb();
+    stage = "connect";
+    console.info("[database] connecting");
 
-    // Temporary diagnostic: remove after the connection is working.
-    stage = "connection / SELECT 1";
-    await sql`SELECT 1 AS ok`;
-    console.info("[database] SELECT 1 succeeded");
+    await client.connect();
 
+    console.info("[database] connected");
+
+    // Temporary connection test.
+    stage = "SELECT 1";
+    const probe = await client.query<{ ok: number }>(
+      "SELECT 1 AS ok",
+    );
+
+    console.info("[database] probe result:", probe.rows);
+
+    // Your actual table query.
     stage = "select demo rows";
-    const rows = await sql<DatabaseRow[]>`
+    const result = await client.query<DatabaseRow>(`
       SELECT id, message, created_at
       FROM app_private.insert_demo
       ORDER BY created_at DESC, id DESC
-    `;
+    `);
 
     stage = "serialize rows";
     return {
       ok: true,
-      rows: Array.from(rows, (row) => ({
+      rows: result.rows.map((row) => ({
         id: row.id,
         message: row.message,
         created_at: row.created_at.toISOString(),
       })),
     };
   } catch (error: unknown) {
-    // Log selected diagnostic fields, not the entire database error/client.
-    if (error instanceof Error) {
-      console.error("[database]", {
-        stage,
-        message: error.message,
-        code:
-          "code" in error && typeof error.code === "string"
-            ? error.code
-            : undefined,
-        stack: error.stack,
-      });
-
-      if (error.cause instanceof Error) {
-        console.error("[database cause]", {
-          message: error.cause.message,
-          stack: error.cause.stack,
-        });
-      }
-    } else {
-      console.error("[database]", {
-        stage,
-        message: "Unknown database error",
-      });
-    }
+    console.error("[database] failed", {
+      stage,
+      message:
+        error instanceof Error ? error.message : "Unknown error",
+      stack: error instanceof Error ? error.stack : undefined,
+    });
 
     return {
       ok: false,
       error: "Could not load rows. Check the server logs.",
     };
   } finally {
-    if (sql) {
+    // Close this action's client, including after a failed query.
+    if (client) {
       try {
-        await sql.end({ timeout: 5 });
+        await client.end();
       } catch {
-        // Do not replace the original query result/error with a cleanup error.
-        console.warn("[database] Client cleanup failed");
+        console.warn("[database] connection cleanup failed");
       }
     }
   }
