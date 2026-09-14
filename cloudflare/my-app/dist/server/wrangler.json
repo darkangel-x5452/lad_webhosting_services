@@ -4,7 +4,9 @@
   "topLevelName": "lad-webhosting-services",
   "definedEnvironments": [],
   "compatibility_date": "2026-09-13",
-  "compatibility_flags": [],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "jsx_factory": "React.createElement",
   "jsx_fragment": "React.Fragment",
   "rules": [

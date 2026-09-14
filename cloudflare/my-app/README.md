@@ -14,3 +14,6 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Context
 This application is related to the Supabase postgres experimentation to test postgress connectivity.
+
+## Install
+- `npm clean-install --progress=false`

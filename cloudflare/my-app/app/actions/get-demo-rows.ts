@@ -26,6 +26,11 @@ export async function getDemoRows(): Promise<GetRowsResult> {
   //   };
   // }
 
+  console.info("[database configuration]", {
+    hasDatabaseUrl:
+      typeof process !== "undefined" &&
+      Boolean(process.env.DATABASE_URL),
+  });
   try {
     const sql = getDb();
 
@@ -34,6 +39,7 @@ export async function getDemoRows(): Promise<GetRowsResult> {
       from app_private.insert_demo
       order by created_at desc, id desc
     `;
+
 
     // Return a plain array with only the fields the UI needs.
     return {
@@ -45,6 +51,16 @@ export async function getDemoRows(): Promise<GetRowsResult> {
       })),
     };
   } catch (error: unknown) {
+    if (error instanceof Error) {
+      // Catch granular errors.
+      console.error("[database] message:", error.message);
+      console.error("[database] stack:", error.stack);
+
+      if (error.cause instanceof Error) {
+        console.error("[database] cause:", error.cause.stack);
+      }
+    }
+    // Keep your existing error-handling behaviour below.
     console.error(
       "Database select failed:",
       error instanceof Error ? error.message : "Unknown database error",

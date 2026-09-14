@@ -22,7 +22,11 @@
 	"observability": {
 		"enabled": true
 	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"upload_source_maps": true
+	// Keep your existing configuration and other flags.
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
