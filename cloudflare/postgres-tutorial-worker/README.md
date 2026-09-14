@@ -19,3 +19,10 @@ Set your connection string as a secret so that it is not stored as plain text. U
 
 ## Use Hyperdrive to accelerate queries
 npx wrangler hyperdrive create <NAME_OF_HYPERDRIVE_CONFIG> --connection-string="postgres://user:password@HOSTNAME_OR_IP_ADDRESS:PORT/database_name" --caching-disabled
+
+## Troubleshooting
+Database with SSL Certificates:
+https://github.com/brianc/node-postgres/issues/3144
+https://developers.cloudflare.com/hyperdrive/
+https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/
+https://developers.cloudflare.com/hyperdrive/configuration/tls-ssl-certificates-for-hyperdrive/
