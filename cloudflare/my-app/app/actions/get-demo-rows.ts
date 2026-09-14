@@ -22,7 +22,7 @@ export async function getDemoRows(): Promise<GetRowsResult> {
   // if (process.env.NODE_ENV !== "development") {
   //   return {
   //     ok: false,
-  //     error: "This demo is development-only. Add authentication before deploying.",
+  //     error: "1This demo is development-only. Add authentication before deploying.",
   //   };
   // }
 
@@ -31,16 +31,20 @@ export async function getDemoRows(): Promise<GetRowsResult> {
       typeof process !== "undefined" &&
       Boolean(process.env.DATABASE_URL),
   });
+
   try {
+    console.info("Trying DB")
     const sql = getDb();
-
+    
+    console.info("awaiting sql")
     const rows = await sql<DatabaseRow[]>`
-      select *
-      from app_private.insert_demo
-      order by created_at desc, id desc
+    select *
+    from app_private.insert_demo
+    order by created_at desc, id desc
     `;
-
-
+    
+    console.info("returning sql")
+    
     // Return a plain array with only the fields the UI needs.
     return {
       ok: true,
@@ -51,11 +55,12 @@ export async function getDemoRows(): Promise<GetRowsResult> {
       })),
     };
   } catch (error: unknown) {
+    console.info("error", error)
     if (error instanceof Error) {
       // Catch granular errors.
       console.error("[database] message:", error.message);
       console.error("[database] stack:", error.stack);
-
+      
       if (error.cause instanceof Error) {
         console.error("[database] cause:", error.cause.stack);
       }
@@ -65,7 +70,8 @@ export async function getDemoRows(): Promise<GetRowsResult> {
       "Database select failed:",
       error instanceof Error ? error.message : "Unknown database error",
     );
-
+    console.info("returning result")
+    
     return {
       ok: false,
       error: "Could not load rows. Check your Next.js terminal.",

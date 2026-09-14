@@ -6,11 +6,13 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "lad-webhosting-services",
 	"compatibility_date": "2026-09-13",
-	"main": "vinext/server/fetch-handler",
+	// "main": "vinext/server/fetch-handler",
+	"main": ".open-next/worker.js",
 	"preview_urls": true,
 	"assets": {
-		"directory": "dist/client",
-		"not_found_handling": "none",
+		// "directory": "dist/client",
+		// "not_found_handling": "none",
+		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
 	"cache": {
