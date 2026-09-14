@@ -7,6 +7,7 @@
 	"name": "lad-webhosting-services",
 	"compatibility_date": "2026-09-13",
 	"main": "vinext/server/fetch-handler",
+	"preview_urls": true,
 	"assets": {
 		"directory": "dist/client",
 		"not_found_handling": "none",

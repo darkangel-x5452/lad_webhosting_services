@@ -1,8 +1,8 @@
 import Image from "next/image";
 // import { createClient } from '@/utils/supabase/server'
 // import { cookies } from 'next/headers'
-// import SupabaseButton from "@/components/SupabaseButton";
-// import DemoRows from "@/components/DemoRows";
+import SupabaseButton from "@/components/SupabaseButton";
+import DemoRows from "@/components/DemoRows";
 
 
 export default async function Home() {
@@ -60,10 +60,10 @@ export default async function Home() {
           <h1 className="text-2xl font-semibold">
             Supabase insert test
           </h1>
-          {/* <SupabaseButton /> */}
+          <SupabaseButton />
           <h1 className="text-2xl font-semibold">Supabase get inserted data</h1>
 
-          {/* <DemoRows /> */}
+          <DemoRows />
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
